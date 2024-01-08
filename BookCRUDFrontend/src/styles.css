@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+:root {
+    --background-dark: #222;
+    --background-light: #606e75;
+    --background-lightdark: #616e8f;
+    --text-dark: rgb(0, 0, 0);
+    --text-light: white;
+    --button-primary: #007bff;
+    --button-light: #5f77e2b2;
+    --navbackground-dark: #031346;
+    --navbackground-light: #150e74;
+  }
+  
+  /* Dark theme */
+  .dark-theme {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+  }
+  
+  /* Light theme */
+  .light-theme {
+    background-color: white;
+    color: black;
+  }

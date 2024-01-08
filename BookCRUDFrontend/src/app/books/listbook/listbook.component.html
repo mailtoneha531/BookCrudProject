@@ -1,0 +1,34 @@
+<div class="p-4">
+    <div class="container" [style.background-color]="getBackgroundColor()">
+        <h1><i class="fa-solid fa-book fa-lg"></i></h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 30%">Title</th>
+                    <th style="width: 30%">Author</th>
+                    <th style="width: 30%">publication Date</th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books">
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.publicationDate}}</td>
+                    <td style="white-space: nowrap">
+                        <a routerLink="edit/{{book.id}}" class="btn btn-sm me-1"><i [style.color]="getButtonColor()" class="fa-solid fa-pen"></i></a>
+                        <button (click)="deleteBook(book.id)" class="btn btn-sm" style="width: 58px" [disabled]="book.isDeleting">
+                            <span *ngIf="book.isDeleting" class="spinner-border spinner-border-sm"></span>
+                            <span *ngIf="!book.isDeleting"><i style="color:red" class="fa-solid fa-trash"></i></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr *ngIf="!books">
+                    <td colspan="4" class="text-center">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

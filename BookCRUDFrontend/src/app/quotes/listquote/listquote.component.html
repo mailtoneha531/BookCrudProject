@@ -1,0 +1,40 @@
+<div class="p-4">
+    <div class="container">
+        <h1><i class="fa-regular fa-comments fa-lg"></i></h1>
+        <a routerLink="add" [style.background-color]="getButtonColor()" class="btn btn-sm btn-success mb-2">Add New Quote</a>
+        <!-- <a routerLink="listLikedQuotes" class="btn btn-sm btn-success mb-2">Five Liked Quotes</a> -->
+        <button (click)="listLikedQuotes()" [style.background-color]="getButtonColor()" class="btn btn-sm mb-2 mx-3">Five Liked Quotes
+        </button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 30%">Quote Title</th>
+                    <th style="width: 30%">Liked</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!showLikedQuotes">
+                <tr *ngFor="let quote of quotes">
+                    <td>{{quote.quoteTitle}}</td>
+                    <td *ngIf="quote.liked"><i class="fa-solid fa-thumbs-up"></i></td>
+                    <td *ngIf="!quote.liked"><i class="fa-solid fa-thumbs-down"></i></td>
+                </tr>
+                <tr *ngIf="!quotes">
+                    <td colspan="4" class="text-center">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="showLikedQuotes">
+                <tr *ngFor="let quote of showLikedFivePosts">
+                    <td>{{quote.quoteTitle}}</td>
+                    <td *ngIf="quote.liked"><i class="fa-solid fa-thumbs-up"></i></td>
+                </tr>
+                <tr *ngIf="!quotes">
+                    <td colspan="4" class="text-center">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

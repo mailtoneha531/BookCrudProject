@@ -1,0 +1,6 @@
+<div [ngClass]="getTheme()" class="p-4">
+    <div class="container">
+        <h1>Book CRUD {{user?.firstName}}!</h1>
+        <a routerLink="books/add" [style.background-color]="getButtonColor()" class="btn btn-sm btn-success mb-2"><span [style.color] = "getTextColor()">Add New Book</span></a>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<!-- nav You can configure RouterLinkActive by passing exact: true. This will add the classes only when the url matches the link exactly -->
+<!-- <div [style.background-color]="getBackgroundColor()"> -->
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i [style.color] = "getIconColor()" class="fa-solid fa-house"></i></a>
+      <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+      <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            List Items
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" routerLink="/books" routerLinkActive="active">Books</a></li>
+            <li><a class="dropdown-item" routerLink="/quotes" routerLinkActive="active">My Quotes</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="btn btn-primary" (click)="toggleTheme()">Toggle Theme</button>
+  </div>
+</nav>
+<!-- </div> -->
+
+<!-- main app container -->
+<div class="container">
+  <alert></alert>
+  <router-outlet></router-outlet>
+</div>
